@@ -1,5 +1,4 @@
 version: "2"
-
 services:
   rabbit-1:
     hostname: rabbit-1
