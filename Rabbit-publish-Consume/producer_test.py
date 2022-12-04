@@ -6,10 +6,10 @@ logging.basicConfig(level=logging.INFO)
 
 
 def test():
-    return {"hi": "bye"}
+    return {"salam": "khodafz"}
 
 
-url = 'amqp://guest:guest@192.168.7.245:5672/%2F'
+url = 'amqp://guest:guest@192.168.7.245:5673/%2F'
 producer = RabbitIntervalPublisher(
     "routaa_exchange",
     ExchangeTypeEnum.DIRECT,

@@ -132,7 +132,7 @@ class RabbitBlockPublisher(RabbitReconnecting):
 
 
 class RabbitIntervalPublisher(RabbitReconnecting):
-    PUBLISH_INTERVAL = 10
+    PUBLISH_INTERVAL = 0.5
     should_delivery_confirmation = False
     is_message_persisted = False
 

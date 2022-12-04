@@ -1,5 +1,4 @@
 version: "2"
-
 services:
   rabbit-1:
     hostname: rabbit-1
@@ -32,7 +31,7 @@ services:
     container_name: rabbit-2
     image: rabbitmq:3.11.3-management
     ports:
-      - "5672:5672"
+      - "5673:5672"
       - "8102:15672"
     volumes:
       - "/srv/rabbitmq/config/rabbit-2/:/config/"
@@ -51,7 +50,7 @@ services:
     container_name: rabbit-3
     image: rabbitmq:3.11.3-management
     ports:
-      - "5672:5672"
+      - "5674:5672"
       - "8103:15672"
     volumes:
       - "/srv/rabbitmq/config/rabbit-3/:/config/"
@@ -62,6 +61,22 @@ services:
       - rabbitmq
     depends_on:
       - rabbit-2
+  rabbit-4:
+    hostname: rabbit-4
+    container_name: rabbit-4
+    image: rabbitmq:3.11.3-management
+    ports:
+      - "5675:5672"
+      - "8104:15672"
+    volumes:
+      - "/srv/rabbitmq/config/rabbit-4/:/config/"
+    environment:
+      - RABBITMQ_CONFIG_FILE=/config/rabbitmq
+      - RABBITMQ_ERLANG_COOKIE="YYRDITCRAERCUROGWFMZ"
+    networks:
+      - rabbitmq
+    depends_on:
+      - rabbit-3
 networks:
   rabbitmq:
     external:
